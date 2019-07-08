@@ -1,0 +1,980 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WCL">
+    <Style x:Key="Window_MinimizeButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="10" Stretch="Uniform">
+                            <Grid Width="50" Height="50">
+                                <Rectangle Fill="{TemplateBinding Foreground}" Height="5" Margin="0, 25, 0, 0"></Rectangle>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.5"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Window_MaximizeButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="10" Stretch="Uniform">
+                            <Grid>
+                                <Path Fill="{TemplateBinding Foreground}" Data="M0,0v10h10V0H0z M9,9H1V1h8V9z"></Path>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.5"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Window_RestoreDownButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="10" Stretch="Uniform">
+                            <Path Fill="{TemplateBinding Foreground}" Data="M2.1,0v2H0v8.1h8.2v-2h2V0H2.1z M7.2,9.2H1.1V3h6.1V9.2z M9.2,7.1h-1V2H3.1V1h6.1V7.1z"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.5"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Window_CloseButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="10" Stretch="Uniform">
+                            <Polygon Fill="{TemplateBinding Foreground}" Points="25.420000076293945,1.4200000762939453 24.000001907348633,0 12.709999084472656,11.300000190734863 1.4200000762939453,0 0,1.4200000762939453 11.30000114440918,12.710000038146973 0,24 1.4200000762939453,25.419998168945312 12.709999084472656,14.119999885559082 24.000001907348633,25.419998168945312 25.420000076293945,24 14.119999885559082,12.710000038146973 25.420000076293945,1.4200000762939453"></Polygon>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="1"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserTab_XButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="5" Stretch="Fill">
+                            <Path Fill="{TemplateBinding Foreground}" Data="M14.0605469,13L24.7802734,2.2802734c0.2929688-0.2929688,0.2929688-0.7675781,0-1.0605469  s-0.7675781-0.2929688-1.0605469,0L13,11.9394531L2.2802734,1.2197266c-0.2929688-0.2929688-0.7675781-0.2929688-1.0605469,0  s-0.2929688,0.7675781,0,1.0605469L11.9394531,13L1.2197266,23.7197266c-0.2929688,0.2929688-0.2929688,0.7675781,0,1.0605469  C1.3662109,24.9267578,1.5576172,25,1.75,25s0.3837891-0.0732422,0.5302734-0.2197266L13,14.0605469l10.7197266,10.7197266  C23.8662109,24.9267578,24.0576172,25,24.25,25s0.3837891-0.0732422,0.5302734-0.2197266  c0.2929688-0.2929688,0.2929688-0.7675781,0-1.0605469L14.0605469,13z"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.5"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Browser_TabAddButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Stretch="Uniform" Margin="3">
+                            <Polygon Fill="{TemplateBinding Foreground}" Points="60.41743278503418,28.99135398864746 31.6174373626709,28.99135398864746 31.6174373626709,-0.00864410400390625 29.1174373626709,-0.00864410400390625 29.1174373626709,28.99135398864746 0.11743545532226562,28.99135398864746 0.11743545532226562,31.49135398864746 29.1174373626709,31.49135398864746 29.1174373626709,60.49135398864746 31.6174373626709,60.49135398864746 31.6174373626709,31.49135398864746 60.6174373626709,31.49135398864746 60.6174373626709,28.99135398864746"></Polygon>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OverlayRect" Property="Opacity" Value="0.5"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="OverlayRect" Property="Opacity" Value="0"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Browser_TabButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <TextBlock Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Name}"></TextBlock>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OverlayRect" Property="Opacity" Value="0.5"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="OverlayRect" Property="Opacity" Value="0"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_BackButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="8" Stretch="Fill">
+                            <Path Data="m31.106,10.00025l-27.828,0l8.325,-8.293c0.391,-0.391 0.391,-1.024 0,-1.414c-0.391,-0.391 -1.024,-0.391 -1.414,0l-9.9,9.899c-0.385,0.385 -0.385,1.029 0,1.414l9.9,9.9c0.391,0.391 1.024,0.391 1.414,0c0.391,-0.391 0.391,-1.024 0,-1.414l-8.325,-8.092l27.828,0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1z" Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.05"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_FowardButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="8" Stretch="Fill">
+                            <Path Data="m32,11.00888c0,-0.267 -0.11,-0.522 -0.293,-0.714l-9.899,-9.999c-0.391,-0.395 -1.024,-0.394 -1.414,0c-0.391,0.394 -0.391,1.034 0,1.428l8.193,8.275l-27.587,0c-0.552,0 -1,0.452 -1,1.01s0.448,1.01 1,1.01l27.586,0l-8.192,8.275c-0.391,0.394 -0.39,1.034 0,1.428c0.391,0.394 1.024,0.394 1.414,0l9.899,-9.999c0.187,-0.189 0.29,-0.449 0.293,-0.714z" Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.05"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_RefreshButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="8" Stretch="Fill">
+                            <Grid>
+                                <Polygon Fill="{TemplateBinding Foreground}" Points="1.0035622892791451,0.49000000953674316 10.346377288930668,0.49000000953674316 10.346377288930668,9.934216499328613 1.0035622892791451,0.49000000953674316 "></Polygon>
+                                <Path Stroke="{TemplateBinding Foreground}" StrokeThickness="2" Data="m16.07664,0.50574a15.57136,15.74036 0 1 1 -7.69225,2.04625"></Path>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_XButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="8" Stretch="Fill">
+                            <Path Fill="{TemplateBinding Foreground}" Data="M14.0605469,13L24.7802734,2.2802734c0.2929688-0.2929688,0.2929688-0.7675781,0-1.0605469  s-0.7675781-0.2929688-1.0605469,0L13,11.9394531L2.2802734,1.2197266c-0.2929688-0.2929688-0.7675781-0.2929688-1.0605469,0  s-0.2929688,0.7675781,0,1.0605469L11.9394531,13L1.2197266,23.7197266c-0.2929688,0.2929688-0.2929688,0.7675781,0,1.0605469  C1.3662109,24.9267578,1.5576172,25,1.75,25s0.3837891-0.0732422,0.5302734-0.2197266L13,14.0605469l10.7197266,10.7197266  C23.8662109,24.9267578,24.0576172,25,24.25,25s0.3837891-0.0732422,0.5302734-0.2197266  c0.2929688-0.2929688,0.2929688-0.7675781,0-1.0605469L14.0605469,13z"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_HomeButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="6" Stretch="Fill">
+                            <Grid>
+                                <Polygon Stroke="{TemplateBinding Foreground}" StrokeThickness="2" Points="2 23 24 1 46 23"></Polygon>
+                                <Polygon Stroke="{TemplateBinding Foreground}" StrokeThickness="2" Points="42 25 42 47 30 47 30 31 17 31 17 47 6 47 6 25"></Polygon>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_SearchButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="8" Stretch="Fill">
+                            <Path Data="m13.42712,15.42712c-1.38987,0.99036 -3.09047,1.57288 -4.92712,1.57288c-4.69442,0 -8.5,-3.80558 -8.5,-8.5c0,-4.69442 3.80558,-8.5 8.5,-8.5c4.69442,0 8.5,3.80558 8.5,8.5c0,1.83665 -0.58252,3.53725 -1.57288,4.92712l5.5848,5.5848c0.5502,0.5502 0.54561,1.43055 -0.0002,1.97636l-0.02344,0.02344c-0.54442,0.54442 -1.43066,0.5459 -1.97636,0.0002l-5.5848,-5.5848l0,0zm-4.92712,-0.42712c3.58985,0 6.5,-2.91015 6.5,-6.5c0,-3.58985 -2.91015,-6.5 -6.5,-6.5c-3.58985,0 -6.5,2.91015 -6.5,6.5c0,3.58985 2.91015,6.5 6.5,6.5l0,0z" 
+                                      Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_BookmarkButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox x:Name="UncheckedBookmark" Margin="10, 8, 10, 8" Stretch="Fill">
+                            <Path Data="m2.99715,0c-1.65528,0 -2.99715,1.34177 -2.99715,2.99109l0,21.00891l6,-6l6,6l0,-21.00891c0,-1.65193 -1.34162,-2.99109 -2.99715,-2.99109l-6.0057,0l0,0zm0.00247,1c-1.10436,0 -1.99962,0.8984 -1.99962,1.99393l0,18.60605l5,-5l5,5l0,-18.60605c0,-1.10122 -0.88743,-1.99393 -1.99961,-1.99393l-6.00077,0l0,0z" 
+                                      Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                        <Viewbox x:Name="CheckedBookmark" Margin="10, 8, 10, 8" Stretch="Fill" Visibility="Hidden">
+                            <Path Data="m2.99715,0c-1.65528,0 -2.99715,1.34177 -2.99715,2.99109l0,21.00891l6,-6l6,6l0,-21.00891c0,-1.65193 -1.34162,-2.99109 -2.99715,-2.99109l-6.0057,0z" 
+                                      Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Visibility" TargetName="CheckedBookmark" Value="Visible"></Setter>
+                                <Setter Property="Visibility" TargetName="UncheckedBookmark" Value="Hidden"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Visibility" TargetName="CheckedBookmark" Value="Hidden"></Setter>
+                                <Setter Property="Visibility" TargetName="UncheckedBookmark" Value="Visible"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_XSearchButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="8" Stretch="Fill">
+                            <Path Fill="{TemplateBinding Foreground}" Data="M14.0605469,13L24.7802734,2.2802734c0.2929688-0.2929688,0.2929688-0.7675781,0-1.0605469  s-0.7675781-0.2929688-1.0605469,0L13,11.9394531L2.2802734,1.2197266c-0.2929688-0.2929688-0.7675781-0.2929688-1.0605469,0  s-0.2929688,0.7675781,0,1.0605469L11.9394531,13L1.2197266,23.7197266c-0.2929688,0.2929688-0.2929688,0.7675781,0,1.0605469  C1.3662109,24.9267578,1.5576172,25,1.75,25s0.3837891-0.0732422,0.5302734-0.2197266L13,14.0605469l10.7197266,10.7197266  C23.8662109,24.9267578,24.0576172,25,24.25,25s0.3837891-0.0732422,0.5302734-0.2197266  c0.2929688-0.2929688,0.2929688-0.7675781,0-1.0605469L14.0605469,13z"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="BrowserControl_SettingsButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox Margin="6" Stretch="Fill">
+                            <Grid>
+                                <Path Fill="{TemplateBinding Foreground}" Data="m26,48l-4,0c-1.654,0 -3,-1.346 -3,-3l0,-3.724c-1.28,-0.37 -2.512,-0.881 -3.681,-1.527l-2.634,2.635c-1.134,1.134 -3.109,1.132 -4.243,0l-2.829,-2.828c-0.567,-0.566 -0.879,-1.32 -0.879,-2.121s0.312,-1.555 0.879,-2.121l2.635,-2.636c-0.645,-1.166 -1.156,-2.398 -1.525,-3.679l-3.723,0c-1.654,0 -3,-1.346 -3,-3l0,-4c0,-0.802 0.312,-1.555 0.878,-2.121c0.567,-0.566 1.32,-0.879 2.122,-0.879l3.724,0c0.37,-1.278 0.88,-2.511 1.526,-3.679l-2.634,-2.635c-1.17,-1.17 -1.17,-3.072 0,-4.242l2.828,-2.829c1.133,-1.132 3.109,-1.134 4.243,0l2.635,2.635c1.168,-0.645 2.4,-1.156 3.678,-1.525l0,-3.724c0,-1.654 1.346,-3 3,-3l4,0c1.654,0 3,1.346 3,3l0,3.724c1.28,0.37 2.512,0.881 3.678,1.525l2.635,-2.635c1.134,-1.132 3.109,-1.134 4.243,0l2.829,2.828c0.567,0.566 0.879,1.32 0.879,2.121s-0.312,1.555 -0.879,2.121l-2.634,2.635c0.646,1.168 1.157,2.4 1.526,3.68l3.723,0c1.654,0 3,1.346 3,3l0,4c0,0.802 -0.312,1.555 -0.878,2.121s-1.32,0.879 -2.122,0.879l-3.724,0c-0.37,1.28 -0.881,2.513 -1.526,3.68l2.634,2.635c1.17,1.17 1.17,3.072 0,4.242l-2.828,2.829c-1.134,1.133 -3.109,1.133 -4.243,0l-2.633,-2.635c-1.168,0.646 -2.401,1.156 -3.679,1.526l0,3.724c-0.001,1.654 -1.346,3 -3.001,3zm-10.843,-10.502c0.179,0 0.36,0.048 0.521,0.146c1.416,0.866 2.949,1.502 4.557,1.891c0.449,0.109 0.765,0.51 0.765,0.972l0,4.493c0,0.552 0.449,1 1,1l4,0c0.551,0 1,-0.448 1,-1l0,-4.493c0,-0.462 0.316,-0.863 0.765,-0.972c1.606,-0.389 3.139,-1.023 4.556,-1.89c0.396,-0.241 0.902,-0.18 1.229,0.146l3.178,3.179c0.375,0.374 1.039,0.376 1.415,0l2.828,-2.829c0.39,-0.39 0.39,-1.024 0,-1.414l-3.179,-3.179c-0.327,-0.326 -0.387,-0.835 -0.146,-1.229c0.865,-1.414 1.5,-2.947 1.889,-4.556c0.108,-0.449 0.51,-0.766 0.972,-0.766l4.493,0c0.267,0 0.519,-0.104 0.708,-0.293c0.188,-0.186 0.292,-0.437 0.292,-0.705l0,-4c0,-0.552 -0.449,-1 -1,-1l-4.493,0c-0.462,0 -0.864,-0.316 -0.972,-0.766c-0.388,-1.607 -1.023,-3.14 -1.889,-4.556c-0.241,-0.394 -0.181,-0.901 0.146,-1.229l3.179,-3.179c0.186,-0.187 0.293,-0.444 0.293,-0.707s-0.107,-0.521 -0.293,-0.707l-2.829,-2.828c-0.378,-0.377 -1.037,-0.377 -1.415,0l-3.179,3.179c-0.326,0.328 -0.833,0.389 -1.229,0.146c-1.413,-0.864 -2.945,-1.5 -4.554,-1.889c-0.448,-0.107 -0.765,-0.508 -0.765,-0.97l0,-4.493c0,-0.552 -0.449,-1 -1,-1l-4,0c-0.551,0 -1,0.448 -1,1l0,4.493c0,0.462 -0.316,0.863 -0.765,0.972c-1.606,0.388 -3.139,1.023 -4.556,1.889c-0.395,0.241 -0.902,0.181 -1.228,-0.146l-3.179,-3.179c-0.378,-0.377 -1.037,-0.377 -1.415,0l-2.827,2.828c-0.39,0.39 -0.39,1.024 0,1.414l3.179,3.179c0.327,0.326 0.387,0.835 0.146,1.229c-0.866,1.416 -1.501,2.949 -1.889,4.555c-0.108,0.449 -0.51,0.766 -0.972,0.766l-4.494,0c-0.267,0 -0.519,0.104 -0.708,0.293c-0.188,0.187 -0.292,0.438 -0.292,0.706l0,4c0,0.552 0.449,1 1,1l4.493,0c0.462,0 0.864,0.316 0.972,0.766c0.389,1.608 1.024,3.141 1.889,4.555c0.241,0.394 0.181,0.901 -0.146,1.229l-3.179,3.18c-0.186,0.187 -0.293,0.444 -0.293,0.707s0.107,0.521 0.293,0.707l2.829,2.828c0.377,0.377 1.037,0.377 1.415,0l3.178,-3.179c0.192,-0.194 0.447,-0.294 0.706,-0.294z"></Path>
+                                <Path Fill="{TemplateBinding Foreground}" Data="m24,34c-5.514,0 -10,-4.486 -10,-10s4.486,-10 10,-10s10,4.486 10,10s-4.485,10 -10,10zm0,-18c-4.411,0 -8,3.589 -8,8s3.589,8 8,8s8,-3.589 8,-8s-3.588,-8 -8,-8z"></Path>
+                            </Grid>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.05"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Settings_TextButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <Viewbox Margin="8" Stretch="Fill">
+                                <TextBlock Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Content}"></TextBlock>
+                            </Viewbox>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Titlebar_ButtonOverlay" TargetType="{x:Type Label}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Label}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="Black" Opacity="0"></Rectangle>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="OverlayRect" Property="Opacity" Value="0.2"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="OverlayRect" Property="Opacity" Value="0"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="UserProfile_Icon" TargetType="{x:Type Label}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Viewbox Stretch="Fill">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Path Fill="{TemplateBinding Foreground}" Data="m50.278002,69.811813c-15.54,0 -28.184,-12.643 -28.184,-28.184l0,-13.911c0,-15.542 12.644,-28.186 28.184,-28.186c15.542,0 28.186,12.644 28.186,28.186l0,13.911c0,15.541 -12.644,28.184 -28.186,28.184zm0,-66.281c-13.335,0 -24.184,10.85 -24.184,24.186l0,13.911c0,13.334 10.849,24.184 24.184,24.184c13.336,0 24.186,-10.85 24.186,-24.184l0,-13.911c0,-13.336 -10.85,-24.186 -24.186,-24.186z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m88.329002,99.530813l-76.51,0c-6.518,0 -11.819,-5.303 -11.819,-11.82l0,-8.734c0,-3.857 1.953,-9.027 11.26,-11.738l11.443,-3.168c1.067,-0.291 2.167,0.33 2.461,1.395s-0.33,2.166 -1.395,2.461l-11.417,3.16c-8.353,2.434 -8.353,6.541 -8.353,7.891l0,8.734c0,4.313 3.508,7.82 7.819,7.82l76.51,0c4.312,0 7.819,-3.508 7.819,-7.82l0,-8.734c0,-3.643 -2.816,-6.299 -8.372,-7.896l-10.892,-3.045c-1.064,-0.297 -1.686,-1.4 -1.388,-2.465c0.298,-1.063 1.398,-1.689 2.464,-1.387l10.906,3.049c9.326,2.682 11.281,7.867 11.281,11.744l0,8.734c0.002,6.516 -5.299,11.819 -11.817,11.819z"></Path>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Screensaver_Usb" TargetType="Label">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Viewbox Stretch="Fill">
+                        <Grid Background="{TemplateBinding Background}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Path Fill="{TemplateBinding Foreground}" Data="m48.97625,22l-39.25,0a9.76,9.76 0 0 1 -9.75,-9.75l0,-2.5a9.76,9.76 0 0 1 9.75,-9.75l39.25,0a1,1 0 0 1 1,1l0,20a1,1 0 0 1 -1,1zm-39.25,-20a7.76,7.76 0 0 0 -7.75,7.75l0,2.5a7.76,7.76 0 0 0 7.75,7.75l38.25,0l0,-18l-38.25,0z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m56.97625,19l-8,0a1,1 0 0 1 -1,-1l0,-14a1,1 0 0 1 1,-1l8,0a1,1 0 0 1 1,1l0,14a1,1 0 0 1 -1,1zm-7,-2l6,0l0,-12l-6,0l0,12z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m42.97625,18a1,1 0 0 1 -1,-1l0,-12a1,1 0 0 1 2,0l0,12a1,1 0 0 1 -1,1z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m31.97625,18l-17,0a7,7 0 0 1 0,-14l17,0a7,7 0 0 1 0,14zm-17,-12a5,5 0 0 0 0,10l17,0a5,5 0 0 0 0,-10l-17,0z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m32.97625,17a6,6 0 1 1 6,-6a6,6 0 0 1 -6,6zm0,-10a4,4 0 1 0 4,4a4,4 0 0 0 -4,-4z"></Path>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Browser_Icon" TargetType="Label">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Viewbox>
+                        <Grid>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m545.909,0c18.073,2.476 36.262,4.312 54.202,7.531c141.18,25.331 250.931,98.959 331.68,216.833c6.204,9.06 11.837,18.513 17.679,27.82c0.475,0.76 0.488,1.809 0.992,3.836c-4.021,0 -7.543,0 -11.064,0c-142.306,0 -284.61,0.02 -426.915,-0.012c-41.051,-0.008 -81.358,4.891 -118.604,23.084c-66.547,32.508 -110.587,85.028 -133.939,155.135c-1.235,3.707 -2.441,7.426 -4.147,12.622c-2.513,-3.855 -4.319,-6.422 -5.919,-9.114c-45.779,-76.995 -91.416,-154.075 -137.499,-230.888c-4.224,-7.044 -3.526,-11.292 1.341,-17.268c79.831,-98.001 182.212,-157.942 306.066,-181.469c19.199,-3.65 38.749,-5.455 58.137,-8.11c22.664,0 45.326,0 67.99,0z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m0,478.039c2.654,-20.412 4.738,-40.917 8.076,-61.218c9.199,-55.964 27.329,-108.908 55.396,-159.753c1.99,2.71 3.645,4.553 4.845,6.655c68.16,119.425 137.138,238.395 203.98,358.555c26.098,46.916 58.52,86.551 104.645,114.066c62.189,37.098 128.273,48.205 198.609,27.459c1.898,-0.561 3.832,-1.016 5.764,-1.455c0.25,-0.059 0.586,0.256 1.525,0.711c-1.496,2.801 -2.904,5.637 -4.484,8.371c-45.777,79.299 -91.639,158.549 -137.23,237.953c-3.601,6.27 -6.674,8.604 -14.6,7.303c-209.413,-34.346 -379.558,-199.887 -417.919,-407.457c-3.261,-17.646 -4.55,-35.656 -6.826,-53.488c-0.416,-3.254 -1.179,-6.465 -1.781,-9.695c0,-22.669 0,-45.339 0,-68.007z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m518.34,1023.977c2.472,-4.557 3.964,-7.479 5.608,-10.312c66.791,-115.201 133.282,-230.578 200.617,-345.461c16.907,-28.848 33.441,-57.529 41.312,-90.35c22.044,-91.905 -2.348,-171.698 -63.14,-241.977c-2.18,-2.517 -4.488,-4.924 -6.736,-7.383c-2.018,-2.205 -4.037,-4.41 -6.957,-7.6c3.314,-0.355 5.699,-0.834 8.08,-0.834c93.295,-0.039 186.59,0.072 279.883,-0.242c7.101,-0.023 9.772,2.796 12.259,8.558c21.812,50.524 31.407,103.688 34.099,158.268c10.532,213.575 -110.728,409.954 -306.481,496.397c-60.503,26.717 -124.179,39.08 -190.074,40.93c-2.291,0.062 -4.586,0.006 -8.47,0.006z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m512.543,320.033c105.829,0.227 191.576,86.56 191.33,192.64c-0.244,105.825 -86.61,191.633 -192.621,191.375c-105.845,-0.258 -191.537,-86.562 -191.299,-192.669c0.238,-105.89 86.477,-191.572 192.59,-191.346z"></Path>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Theme_Icon" TargetType="Label">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Viewbox>
+                        <Grid>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m40,32l-40,0l0,-8c0,-2.206 1.794,-4 4,-4l10.046,0c0.333,0 0.642,-0.164 0.828,-0.439s0.224,-0.624 0.101,-0.932c-0.647,-1.616 -0.975,-3.318 -0.975,-5.06l0,-7.569c0,-3.309 2.691,-6 6,-6s6,2.691 6,6l0,7.569c0,1.741 -0.328,3.443 -0.975,5.059c-0.123,0.309 -0.085,0.657 0.101,0.932s0.496,0.44 0.828,0.44l10.046,0c2.206,0 4,1.794 4,4l0,8zm-38,-2l36,0l0,-6c0,-1.103 -0.897,-2 -2,-2l-10.046,0c-0.997,0 -1.926,-0.493 -2.484,-1.318s-0.671,-1.871 -0.301,-2.796c0.551,-1.379 0.831,-2.831 0.831,-4.317l0,-7.569c0,-2.206 -1.794,-4 -4,-4s-4,1.794 -4,4l0,7.569c0,1.485 0.28,2.938 0.831,4.316c0.371,0.925 0.258,1.971 -0.301,2.796s-1.487,1.319 -2.484,1.319l-10.046,0c-1.103,0 -2,0.897 -2,2l0,6z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m37,48l-25,0c-0.265,0 -0.52,-0.105 -0.707,-0.293s-0.293,-0.442 -0.293,-0.707l0,-3.764l-2.105,4.211c-0.17,0.339 -0.517,0.553 -0.895,0.553l-5,0c-0.552,0 -1,-0.448 -1,-1l0,-16c0,-0.552 0.448,-1 1,-1l34,0c0.552,0 1,0.448 1,1l0,16c0,0.552 -0.448,1 -1,1zm-24,-2l23,0l0,-14l-32,0l0,14l3.381,0l3.724,-7.447c0.208,-0.415 0.674,-0.631 1.125,-0.526c0.451,0.106 0.77,0.509 0.77,0.973l0,7z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m33,48c-0.552,0 -1,-0.448 -1,-1l0,-10c0,-0.552 0.448,-1 1,-1s1,0.448 1,1l0,10c0,0.552 -0.448,1 -1,1z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m29,48c-0.552,0 -1,-0.448 -1,-1l0,-8c0,-0.552 0.448,-1 1,-1s1,0.448 1,1l0,8c0,0.552 -0.448,1 -1,1z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m25,48c-0.552,0 -1,-0.448 -1,-1l0,-5c0,-0.552 0.448,-1 1,-1s1,0.448 1,1l0,5c0,0.552 -0.448,1 -1,1z"></Path>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="Accessibility_Icon" TargetType="Label">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Label">
+                    <Viewbox>
+                        <Grid>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m15.3,30.9c-8.5,0 -15.4,-6.9 -15.4,-15.4s6.9,-15.5 15.4,-15.5s15.5,7 15.5,15.5c0,1.2 -0.1,2.4 -0.4,3.6c-0.1,0.5 -0.7,0.9 -1.2,0.7c-0.5,-0.1 -0.9,-0.7 -0.7,-1.2c0.2,-1 0.4,-2 0.4,-3.1c0,-7.4 -6,-13.5 -13.5,-13.5s-13.5,6.1 -13.5,13.5s6,13.5 13.5,13.5c1.1,0 2.1,-0.1 3.2,-0.4c0.5,-0.1 1.1,0.2 1.2,0.7c0.1,0.5 -0.2,1.1 -0.7,1.2c-1.3,0.3 -2.5,0.4 -3.8,0.4z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m36.4,40c-0.9,0 -1.8,-0.4 -2.5,-1l-11,-11c-0.4,-0.4 -0.4,-1 0,-1.4s1,-0.4 1.4,0l11,11c0.6,0.6 1.6,0.6 2.1,0c0.6,-0.6 0.6,-1.6 0,-2.1l-11,-11c-0.4,-0.4 -0.4,-1 0,-1.4s1,-0.4 1.4,0l11,11c1.4,1.4 1.4,3.6 0,5c-0.6,0.5 -1.5,0.9 -2.4,0.9z"></Path>
+                            <Path Fill="{TemplateBinding Foreground}" Data="m15.3,27c-6.3,0 -11.5,-5.2 -11.5,-11.5s5.2,-11.5 11.5,-11.5s11.5,5.2 11.5,11.5s-5.1,11.5 -11.5,11.5zm0,-21c-5.2,0 -9.5,4.3 -9.5,9.5s4.3,9.5 9.5,9.5s9.5,-4.3 9.5,-9.5s-4.2,-9.5 -9.5,-9.5z"></Path>
+                        </Grid>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="StyledTextbox" TargetType="TextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Rectangle x:Name="BackgroundRectangle" Fill="{TemplateBinding Background}" Opacity="0.3"></Rectangle>
+                        <TextBox x:Name="Textbox" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}"
+                                 FontFamily="{TemplateBinding FontFamily}" FontStretch="{TemplateBinding FontStretch}"
+                                 FontStyle="{TemplateBinding FontStyle}" FontWeight="{TemplateBinding FontWeight}"
+                                 Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, UpdateSourceTrigger=PropertyChanged}" Background="Transparent"
+                                 HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                 VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" BorderBrush="Transparent">
+                        </TextBox>
+                        <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" Visibility="Hidden"></Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="BackgroundRectangle" Value="0.6"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="BackgroundRectangle" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Visibility" Value="Hidden"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Visibility" Value="Visible"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="VisibilityToggleButton" TargetType="ToggleButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Rectangle x:Name="OverlayRect" Fill="{TemplateBinding Background}" Opacity="0"></Rectangle>
+                        <Viewbox x:Name="Visible" Margin="10, 8, 10, 8" Stretch="Fill">
+                            <Path Data="m13,0c-9,0 -13,7 -13,7c0,0 4,7 13,7c9,0 13,-7 13,-7c0,0 -4,-7 -13,-7l0,0l0,0zm0,1c-8,0 -11.80005,6 -11.80005,6c0,0 3.80005,6 11.80005,6c8,0 11.80005,-6 11.80005,-6c0,0 -3.80005,-6 -11.80005,-6l0,0l0,0zm0,10c2.20914,0 4,-1.79086 4,-4c0,-2.20914 -1.79086,-4 -4,-4c-2.20914,0 -4,1.79086 -4,4c0,2.20914 1.79086,4 4,4l0,0l0,0zm0,-1c1.65685,0 3,-1.34315 3,-3c0,-1.65685 -1.34315,-3 -3,-3c-1.65685,0 -3,1.34315 -3,3c0,1.65685 1.34315,3 3,3l0,0l0,0zm0,-2c0.55228,0 1,-0.44772 1,-1c0,-0.55228 -0.44772,-1 -1,-1c-0.55228,0 -1,0.44772 -1,1c0,0.55228 0.44772,1 1,1l0,0l0,0z" 
+                                      Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                        <Viewbox x:Name="Hidden" Margin="10, 8, 10, 8" Stretch="Fill" Visibility="Hidden">
+                            <Path Data="m5.1087,13.8913c-3.49149,-2.06119 -5.1087,-4.8913 -5.1087,-4.8913c0,0 4,-7 13,-7c1.30451,0 2.50398,0.14706 3.60144,0.39856l-0.84954,0.84954c-0.85475,-0.15805 -1.77181,-0.2481 -2.7519,-0.2481c-8,0 -11.80005,6 -11.80005,6c0,0 1.51478,2.39172 4.64498,4.15507l-0.73623,0.73623l0,0l0,0zm4.28986,1.71014c1.09746,0.2515 2.29693,0.39856 3.60144,0.39856c9,0 13,-7 13,-7c0,0 -1.61721,-2.83011 -5.1087,-4.8913l-0.73623,0.73623c3.1302,1.76335 4.64498,4.15507 4.64498,4.15507c0,0 -3.80005,6 -11.80005,6c-0.98009,0 -1.89715,-0.09005 -2.7519,-0.2481l-0.84954,0.84954l0,0l0,0zm7.50009,-7.50009c0.06632,0.28886 0.10135,0.58966 0.10135,0.89865c0,2.20914 -1.79086,4 -4,4c-0.30899,0 -0.60979,-0.03503 -0.89865,-0.10135l0.89865,-0.89865c0.76777,0 1.53553,-0.29289 2.12132,-0.87868c0.58579,-0.58579 0.87868,-1.35355 0.87868,-2.12132l0.89865,-0.89865l0,0l0,0zm-3,-3c-0.28886,-0.06632 -0.58966,-0.10135 -0.89865,-0.10135c-2.20914,0 -4,1.79086 -4,4c0,0.30899 0.03503,0.60979 0.10135,0.89865l0.89865,-0.89865c0,-0.76777 0.29289,-1.53553 0.87868,-2.12132c0.58579,-0.58579 1.35355,-0.87868 2.12132,-0.87868l0.89865,-0.89865l0,0l0,0zm7.10135,-5.10135l-17,17l1,1l17,-17l-1,-1l0,0z" 
+                                      Fill="{TemplateBinding Foreground}"></Path>
+                        </Viewbox>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="OverlayRect" Value="0"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Visibility" TargetName="Visible" Value="Visible"></Setter>
+                                <Setter Property="Visibility" TargetName="Hidden" Value="Hidden"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsChecked" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Visibility" TargetName="Visible" Value="Hidden"></Setter>
+                                <Setter Property="Visibility" TargetName="Hidden" Value="Visible"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="StyledPasswordbox" TargetType="PasswordBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Grid>
+                        <Rectangle x:Name="BackgroundRectangle" Fill="{TemplateBinding Background}" Opacity="0.3" Grid.ColumnSpan="2"></Rectangle>
+                        <ScrollViewer Margin="0"
+                        x:Name="PART_ContentHost" />
+                        <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" Grid.ColumnSpan="2"
+                                BorderThickness="{TemplateBinding BorderThickness}" Visibility="Hidden"></Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="BackgroundRectangle" Value="0.6"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="BackgroundRectangle" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Visibility" Value="Hidden"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Visibility" Value="Visible"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="StyledButton" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Grid>
+                            <Rectangle x:Name="BackgroundRectangle" Fill="{TemplateBinding Background}" Opacity="0.3"></Rectangle>
+                            <Label Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                   VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   BorderBrush="Transparent" BorderThickness="0"></Label>
+                            <Border x:Name="Border" BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" Visibility="Hidden"></Border>
+                        </Grid>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="BackgroundRectangle" Value="0.6"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsFocused" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="Opacity" TargetName="BackgroundRectangle" Value="0.2"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="False"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Visibility" Value="Hidden"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter TargetName="Border" Property="Visibility" Value="Visible"></Setter>
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Grid x:Name="Grid">
+                        <Border x:Name="Rectangle1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  Background="{TemplateBinding Background}" />
+                        <Rectangle x:Name="Rect" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" Fill="White" Opacity="0"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Tag" Value="Horizontal">
+                            <Setter TargetName="Rectangle1" Property="Width" Value="Auto" />
+                            <Setter TargetName="Rectangle1" Property="Height" Value="7" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Rect" Property="Opacity" Value="0.5"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="False">
+                            <Setter TargetName="Rect" Property="Opacity" Value="0"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="{x:Type ScrollBar}" x:Name="ScrollBar" TargetType="{x:Type ScrollBar}">
+        <Setter Property="Stylus.IsFlicksEnabled" Value="false" />
+        <Setter Property="Foreground" Value="{DynamicResource ScrollForegroundColor}" />
+        <Setter Property="Background" Value="{DynamicResource ScrollBackgroundColor}" />
+        <Setter Property="Width" Value="10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid x:Name="GridRoot" Width="19" Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.00001*" />
+                        </Grid.RowDefinitions>
+
+                        <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="true" Focusable="false">
+                            <Track.Thumb>
+                                <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}" />
+                            </Track.Thumb>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="false" />
+                            </Track.IncreaseRepeatButton>
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="false" />
+                            </Track.DecreaseRepeatButton>
+                        </Track>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="Orientation" Value="Horizontal">
+                            <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Width" Value="Auto" />
+                            <Setter Property="Height" Value="12" />
+                            <Setter TargetName="Thumb" Property="Tag" Value="Horizontal" />
+                            <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand" />
+                            <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
