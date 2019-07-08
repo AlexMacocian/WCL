@@ -70,6 +70,9 @@
     <Compile Include="StylishButton.xaml.cs">
       <DependentUpon>StylishButton.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StylishTextBlock.xaml.cs">
+      <DependentUpon>StylishTextBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
@@ -101,6 +104,10 @@
     <Page Include="StylishButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StylishTextBlock.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TitleBar.xaml">
       <SubType>Designer</SubType>
