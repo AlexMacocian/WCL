@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,36 +48,10 @@ namespace WCL
         /// <summary>
         /// String that is displayed on the left side of the titlebar.
         /// </summary>
-        public string Title
+        public string Text
         {
             get => TitleBlock.Text;
             set => TitleBlock.Text = value;
-        }
-        /// <summary>
-        /// Color of the components of the title bar.
-        /// </summary>
-        public SolidColorBrush ForegroundColor
-        {
-            get => CloseButton.Foreground as SolidColorBrush;
-            set
-            {
-                CloseButton.Foreground = value;
-                MaximizeButton.Foreground = value;
-                MinimizeButton.Foreground = value;
-                RestoreButton.Foreground = value;
-                TitleBlock.Foreground = value;
-            }
-        }
-        /// <summary>
-        /// Color of the title bar.
-        /// </summary>
-        public SolidColorBrush BackgroundColor
-        {
-            get => Container.Background as SolidColorBrush;
-            set
-            {
-                Container.Background = value;
-            }
         }
 
         public TitleBar()

@@ -37,13 +37,8 @@ namespace WCL
         /// Opacity of the background.
         /// </summary>
         public double BackgroundOpacity { get => GradientBrush.Opacity; set => GradientBrush.Opacity = value; }
-        /// <summary>
-        /// Color of the text.
-        /// </summary>
-        public SolidColorBrush ForegroundColor { get => Textblock.Foreground as SolidColorBrush; set => Textblock.Foreground = value; }
         public TextAlignment HorizontalTextAlignment { get => Textblock.TextAlignment; set => Textblock.TextAlignment = value; }
         public VerticalAlignment VerticalTextAlignment { get => Textblock.VerticalAlignment; set => Textblock.VerticalAlignment = value; }
-        public double TextFontSize { get => Textblock.FontSize; set => Textblock.FontSize = value; }
 
         private void Grid_PreviewMouseMove(object sender, MouseEventArgs e)
         {

@@ -37,6 +37,8 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock x:Name="Textblock" Background="Transparent" Margin="2"></TextBlock>
+        <TextBlock x:Name="Textblock" Margin="2" 
+                   Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                   FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=UserControl}}" ></TextBlock>
     </Grid>
 </UserControl>

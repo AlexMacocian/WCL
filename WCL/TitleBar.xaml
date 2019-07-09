@@ -13,7 +13,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid x:Name="Container" MouseLeftButtonDown="Container_MouseLeftButtonDown">
+    <Grid x:Name="Container" MouseLeftButtonDown="Container_MouseLeftButtonDown" 
+          Background="{Binding Background, RelativeSource={RelativeSource AncestorType=UserControl}}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -24,15 +25,16 @@
         <Grid x:Name="IconContainer" Grid.Column="0" Margin="25, 0, 0, 0" Width="50" 
               HorizontalAlignment="Left" PreviewMouseLeftButtonDown="Container_MouseLeftButtonDown">
         </Grid>
-        <TextBlock x:Name="TitleBlock" Text="Title" FontSize="26" VerticalAlignment="Center" Grid.Column="1"
-             MouseLeftButtonDown="Container_MouseLeftButtonDown"></TextBlock>
+        <TextBlock x:Name="TitleBlock" Text="Title" 
+                   FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                   VerticalAlignment="Center" Grid.Column="1" MouseLeftButtonDown="Container_MouseLeftButtonDown"></TextBlock>
         <ToggleButton x:Name="CloseButton" Style="{StaticResource Window_CloseButton}" Grid.Column="4"
-                      Click="CloseButton_Click" Background="Red"></ToggleButton>
+                      Click="CloseButton_Click" Background="Red" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"></ToggleButton>
         <ToggleButton x:Name="RestoreButton" Style="{StaticResource Window_RestoreDownButton}" Grid.Column="3"
-                      Click="RestoreButton_Click"></ToggleButton>
+                      Click="RestoreButton_Click" Foreground="{Binding ElementName=CloseButton, Path=Foreground}"></ToggleButton>
         <ToggleButton x:Name="MaximizeButton" Style="{StaticResource Window_MaximizeButton}" Grid.Column="3"
-                      Click="MaximizeButton_Click" Visibility="Hidden"></ToggleButton>
+                      Click="MaximizeButton_Click" Visibility="Hidden" Foreground="{Binding ElementName=CloseButton, Path=Foreground}"></ToggleButton>
         <ToggleButton x:Name="MinimizeButton" Style="{StaticResource Window_MinimizeButton}" Grid.Column="2"
-                      Click="MinimizeButton_Click"></ToggleButton>
+                      Click="MinimizeButton_Click" Foreground="{Binding ElementName=CloseButton, Path=Foreground}"></ToggleButton>
     </Grid>
 </UserControl>

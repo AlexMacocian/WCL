@@ -39,7 +39,10 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Button x:Name="ButtonHolder" Background="Transparent" BorderThickness="0" 
+        <Button x:Name="ButtonHolder" 
+                Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                BorderThickness="0" 
                 BorderBrush="Transparent" Margin="2" Style="{StaticResource StyledButton}"
                 Click="ButtonHolder_Click"></Button>
     </Grid>
