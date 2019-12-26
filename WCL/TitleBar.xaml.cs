@@ -53,6 +53,15 @@ namespace WCL
             get => TitleBlock.Text;
             set => TitleBlock.Text = value;
         }
+        public UIElement Icon
+        {
+            get => IconContainer.Children.Count > 0 ? IconContainer.Children[0] : null;
+            set
+            {
+                IconContainer.Children.Clear();
+                IconContainer.Children.Add(value);
+            }
+        }
 
         public TitleBar()
         {
