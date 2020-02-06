@@ -57,7 +57,10 @@
     </Compile>
     <Compile Include="FrameAnimations\FrameAnimationBase.cs" />
     <Compile Include="FrameAnimations\IFrameAnimation.cs" />
-    <Compile Include="FrameAnimations\SlideRightToLeftAnimation.cs" />
+    <Compile Include="FrameAnimations\SlideBottomToTop.cs" />
+    <Compile Include="FrameAnimations\SlideLeftToRight.cs" />
+    <Compile Include="FrameAnimations\SlideRightToLeft.cs" />
+    <Compile Include="FrameAnimations\SlideTopToBottom.cs" />
     <Compile Include="MenuExpandingButton.xaml.cs">
       <DependentUpon>MenuExpandingButton.xaml</DependentUpon>
     </Compile>

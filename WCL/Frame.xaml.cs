@@ -48,6 +48,14 @@ namespace WCL
                 Container.Children.Remove(e.PreviousElement);
                 elementStack.Push(e.PreviousElement);
             }
+
+            Canvas.SetLeft(e.NewElement, 0);
+            Canvas.SetTop(e.NewElement, 0);
+            Canvas.SetRight(e.NewElement, double.NaN);
+            Canvas.SetBottom(e.NewElement, double.NaN);
+            e.NewElement.Width = Container.ActualWidth;
+            e.NewElement.Height = Container.ActualHeight;
+
             Binding heightBinding = new Binding("ActualHeight");
             heightBinding.Source = Container;
             heightBinding.Mode = BindingMode.OneWay;

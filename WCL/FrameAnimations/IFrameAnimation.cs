@@ -5,6 +5,6 @@ namespace WCL.FrameAnimations
 {
     interface IFrameAnimation
     {
-        void Start(FrameworkElement previousElement, FrameworkElement newElement, Canvas canvas);
+        void Start(FrameworkElement previousChild, FrameworkElement newChild, Canvas canvas);
     }
 }
