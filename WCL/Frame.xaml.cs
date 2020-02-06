@@ -18,27 +18,43 @@ namespace WCL
             InitializeComponent();
         }
 
-        public void NavigateTo(FrameworkElement element, FrameAnimationBase animation)
+        public void NavigateTo(FrameworkElement element, FrameAnimationBase animation = null)
         {
             if (element is null) throw new ArgumentNullException($"{nameof(element)} cannot be null!");
 
             FrameworkElement previousChild = Container.Children.Count == 0 ? null : Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = element;
-            Container.Children.Add(newChild);
-            (animation as IFrameAnimation).Start(previousChild, newChild, Container);
-            animation.AnimationEnded += FrameNavigation_AnimationEnded; 
+
+            if (animation != null)
+            {
+                Container.Children.Add(newChild);
+                animation.AnimationEnded += FrameNavigation_AnimationEnded;
+                (animation as IFrameAnimation).Start(previousChild, newChild, Container);
+            }
+            else
+            {
+                FrameNavigation_AnimationEnded(null, new FrameAnimationBase.AnimationEndedArgs(previousChild, newChild));
+            }
         }
 
-        public void NavigateBack(FrameAnimationBase animation)
+        public void NavigateBack(FrameAnimationBase animation = null)
         {
             if (Container.Children.Count == 0) throw new InvalidOperationException("There is no current element being displayed!");
             if (elementStack.Count == 0) throw new InvalidOperationException("Cannot navigate back as there are no more elements in the stack!");
 
             FrameworkElement currentChild = Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = elementStack.Pop();
-            Container.Children.Add(newChild);
-            (animation as IFrameAnimation).Start(currentChild, newChild, Container);
-            animation.AnimationEnded += FrameNavigation_AnimationEnded;
+
+            if (animation != null)
+            {
+                Container.Children.Add(newChild);
+                animation.AnimationEnded += FrameNavigation_AnimationEnded;
+                (animation as IFrameAnimation).Start(currentChild, newChild, Container);
+            }
+            else
+            {
+                FrameNavigation_AnimationEnded(null, new FrameAnimationBase.AnimationEndedArgs(currentChild, newChild));
+            }
         }
 
         private void FrameNavigation_AnimationEnded(object sender, FrameAnimationBase.AnimationEndedArgs e)
@@ -51,8 +67,8 @@ namespace WCL
 
             Canvas.SetLeft(e.NewElement, 0);
             Canvas.SetTop(e.NewElement, 0);
-            Canvas.SetRight(e.NewElement, double.NaN);
             Canvas.SetBottom(e.NewElement, double.NaN);
+            Canvas.SetRight(e.NewElement, double.NaN);
             e.NewElement.Width = Container.ActualWidth;
             e.NewElement.Height = Container.ActualHeight;
 

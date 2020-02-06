@@ -7,7 +7,7 @@ namespace WCL.FrameAnimations
 {
     public class SlideLeftToRight : FrameAnimationBase
     {
-        Duration animationDuration = TimeSpan.FromSeconds(1);
+        Duration animationDuration = TimeSpan.FromMilliseconds(300);
         public SlideLeftToRight(TimeSpan? duration = null)
         {
             if (duration != null)
