@@ -24,10 +24,9 @@ namespace WCL
 
             FrameworkElement previousChild = Container.Children.Count == 0 ? null : Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = element;
-
+            Container.Children.Add(newChild);
             if (animation != null)
             {
-                Container.Children.Add(newChild);
                 animation.AnimationEnded += FrameNavigation_AnimationEnded;
                 (animation as IFrameAnimation).Start(previousChild, newChild, Container);
             }
@@ -44,10 +43,9 @@ namespace WCL
 
             FrameworkElement currentChild = Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = elementStack.Pop();
-
+            Container.Children.Add(newChild);
             if (animation != null)
             {
-                Container.Children.Add(newChild);
                 animation.AnimationEnded += FrameNavigation_AnimationEnded;
                 (animation as IFrameAnimation).Start(currentChild, newChild, Container);
             }
