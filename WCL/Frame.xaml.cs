@@ -55,6 +55,37 @@ namespace WCL
             }
         }
 
+        public void NavigateBack<T>(FrameAnimationBase animation = null)
+        {
+            if (Container.Children.Count == 0) throw new InvalidOperationException("There is no current element being displayed!");
+            if (elementStack.Count == 0) throw new InvalidOperationException("Cannot navigate back as there are no more elements in the stack!");
+
+            FrameworkElement newChild = null;
+            while(elementStack.Count != 0)
+            {
+                var element = elementStack.Pop();
+                if(element is T)
+                {
+                    newChild = element;
+                    break;
+                }
+            }
+
+            if (newChild == null) throw new InvalidOperationException($"There was no element in the stack of type {typeof(T)}");
+
+            FrameworkElement currentChild = Container.Children[0] as FrameworkElement;
+            Container.Children.Add(newChild);
+            if (animation != null)
+            {
+                animation.AnimationEnded += FrameNavigation_AnimationEnded;
+                (animation as IFrameAnimation).Start(currentChild, newChild, Container);
+            }
+            else
+            {
+                FrameNavigation_AnimationEnded(null, new FrameAnimationBase.AnimationEndedArgs(currentChild, newChild));
+            }
+        }
+
         private void FrameNavigation_AnimationEnded(object sender, FrameAnimationBase.AnimationEndedArgs e)
         {
             if(e.PreviousElement != null)
