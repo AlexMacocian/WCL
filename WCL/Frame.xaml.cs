@@ -25,6 +25,8 @@ namespace WCL
             FrameworkElement previousChild = Container.Children.Count == 0 ? null : Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = element;
             Container.Children.Add(newChild);
+
+            if (previousChild != null) elementStack.Push(previousChild);
             if (animation != null)
             {
                 animation.AnimationEnded += FrameNavigation_AnimationEnded;
@@ -91,7 +93,6 @@ namespace WCL
             if(e.PreviousElement != null)
             {
                 Container.Children.Remove(e.PreviousElement);
-                elementStack.Push(e.PreviousElement);
             }
 
             Canvas.SetLeft(e.NewElement, 0);
