@@ -7,7 +7,7 @@ namespace WCL.FrameAnimations
 {
     public class SlideTopToBottom : FrameAnimationBase
     {
-        Duration animationDuration = TimeSpan.FromMilliseconds(300);
+        Duration animationDuration = TimeSpan.FromMilliseconds(200);
         public SlideTopToBottom(TimeSpan? duration = null)
         {
             if (duration != null)
