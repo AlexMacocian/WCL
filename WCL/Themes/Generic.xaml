@@ -28,7 +28,8 @@
                         <StackPanel>
                             <Grid Margin="5">
                                 <TextBlock Text="{TemplateBinding Text}" Foreground="{TemplateBinding Foreground}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="{TemplateBinding FontSize}"></TextBlock>
-                                <Expander x:Name="Expander" VerticalAlignment="Center" HorizontalAlignment="Right" IsExpanded="True"></Expander>
+                                <Expander x:Name="Expander" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                                          IsExpanded="{TemplateBinding IsExpanded}"></Expander>
                             </Grid>
                             <Rectangle Fill="{TemplateBinding Foreground}" Height="1"></Rectangle>
                             <ContentPresenter Content="{TemplateBinding Content}" 
