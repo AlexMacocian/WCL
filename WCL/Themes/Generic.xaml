@@ -40,4 +40,36 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style TargetType="{x:Type local:ExtendedScrollViewer}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ExtendedScrollViewer}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ScrollContentPresenter Grid.ColumnSpan="2" Grid.RowSpan="2" />
+                        <ScrollBar Grid.Column="1" x:Name="PART_VerticalScrollBar" 
+                                   Value="{TemplateBinding VerticalOffset}" 
+                                   Maximum="{TemplateBinding ScrollableHeight}" 
+                                   ViewportSize="{TemplateBinding ViewportHeight}" 
+                                   Background="{TemplateBinding ScrollbarBackground}"
+                                   Foreground="{TemplateBinding ScrollbarForeground}"/>
+                        <ScrollBar Grid.Row="1" x:Name="PART_HorizontalScrollBar" 
+                                   Orientation="Horizontal" 
+                                   Value="{TemplateBinding HorizontalOffset}" 
+                                   Maximum="{TemplateBinding ScrollableWidth}"
+                                   ViewportSize="{TemplateBinding ViewportWidth}" 
+                                   Background="{TemplateBinding ScrollbarBackground}" 
+                                   Foreground="{TemplateBinding ScrollbarForeground}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

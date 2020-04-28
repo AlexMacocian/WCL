@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ExpandingPanel.cs" />
+    <Compile Include="ExtendedScrollViewer.cs" />
     <Compile Include="ExtendedViewer.cs" />
     <Compile Include="Frame.xaml.cs">
       <DependentUpon>Frame.xaml</DependentUpon>
