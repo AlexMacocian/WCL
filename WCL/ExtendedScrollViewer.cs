@@ -52,10 +52,19 @@ namespace WCL
         public static readonly DependencyProperty ScrollbarBackgroundProperty =
             DependencyProperty.Register("ScrollbarBackground", typeof(Brush), typeof(ExtendedScrollViewer), new UIPropertyMetadata(null));
 
+        public static readonly DependencyProperty CanCapturePreviewMouseWheelProperty =
+            DependencyProperty.Register("CanCapturePreviewMouseWheel", typeof(bool), typeof(ExtendedScrollViewer), new UIPropertyMetadata(null));
+
         public Brush ScrollbarForeground
         {
             get => (SolidColorBrush)GetValue(ScrollbarForegroundProperty);
             set => SetValue(ScrollbarForegroundProperty, value);
+        }
+
+        public bool CanCapturePreviewMouseWheel
+        {
+            get => (bool)GetValue(CanCapturePreviewMouseWheelProperty);
+            set => SetValue(CanCapturePreviewMouseWheelProperty, value);
         }
 
         public Brush ScrollbarBackground
@@ -67,6 +76,17 @@ namespace WCL
         static ExtendedScrollViewer()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ExtendedScrollViewer), new FrameworkPropertyMetadata(typeof(ExtendedScrollViewer)));
+        }
+
+        public ExtendedScrollViewer()
+        {
+            this.PreviewMouseWheel += ExtendedScrollViewer_PreviewMouseWheel;
+        }
+
+        private void ExtendedScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (CanCapturePreviewMouseWheel)
+                this.ScrollToVerticalOffset(this.ContentVerticalOffset - e.Delta / 2);
         }
     }
 }
