@@ -12,6 +12,7 @@ namespace WCL
     /// </summary>
     public partial class Frame : UserControl
     {
+        private bool animating = false;
         private Stack<FrameworkElement> elementStack { get; } = new Stack<FrameworkElement>();
         public Frame()
         {
@@ -22,6 +23,8 @@ namespace WCL
         {
             if (element is null) throw new ArgumentNullException($"{nameof(element)} cannot be null!");
 
+            if (animating) return;
+
             FrameworkElement previousChild = Container.Children.Count == 0 ? null : Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = element;
             Container.Children.Add(newChild);
@@ -29,6 +32,7 @@ namespace WCL
             if (previousChild != null) elementStack.Push(previousChild);
             if (animation != null)
             {
+                animating = true;
                 animation.AnimationEnded += FrameNavigation_AnimationEnded;
                 (animation as IFrameAnimation).Start(previousChild, newChild, Container);
             }
@@ -43,11 +47,14 @@ namespace WCL
             if (Container.Children.Count == 0) throw new InvalidOperationException("There is no current element being displayed!");
             if (elementStack.Count == 0) throw new InvalidOperationException("Cannot navigate back as there are no more elements in the stack!");
 
+            if (animating) return;
+
             FrameworkElement currentChild = Container.Children[0] as FrameworkElement;
             FrameworkElement newChild = elementStack.Pop();
             Container.Children.Add(newChild);
             if (animation != null)
             {
+                animating = true;
                 animation.AnimationEnded += FrameNavigation_AnimationEnded;
                 (animation as IFrameAnimation).Start(currentChild, newChild, Container);
             }
@@ -61,6 +68,8 @@ namespace WCL
         {
             if (Container.Children.Count == 0) throw new InvalidOperationException("There is no current element being displayed!");
             if (elementStack.Count == 0) throw new InvalidOperationException("Cannot navigate back as there are no more elements in the stack!");
+
+            if (animating) return;
 
             FrameworkElement newChild = null;
             while(elementStack.Count != 0)
@@ -79,6 +88,7 @@ namespace WCL
             Container.Children.Add(newChild);
             if (animation != null)
             {
+                animating = true;
                 animation.AnimationEnded += FrameNavigation_AnimationEnded;
                 (animation as IFrameAnimation).Start(currentChild, newChild, Container);
             }
@@ -110,6 +120,8 @@ namespace WCL
             widthBinding.Source = Container;
             widthBinding.Mode = BindingMode.OneWay;
             e.NewElement.SetBinding(FrameworkElement.WidthProperty, widthBinding);
+
+            animating = false;
         }
     }
 }
