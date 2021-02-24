@@ -2,13 +2,15 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFrameworks>netcoreapp3.1;net4.6</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.1;net4.8;net5.0-windows</TargetFrameworks>
     <UseWpf>true</UseWpf>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <StartupObject></StartupObject>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
