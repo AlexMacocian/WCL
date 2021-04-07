@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WCL"
              mc:Ignorable="d" 
+             x:Name="_this"
              d:DesignHeight="35" d:DesignWidth="800">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -18,23 +19,31 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="55"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid x:Name="IconContainer" Grid.Column="0" Margin="5, 0, 0, 0" Width="50" 
               HorizontalAlignment="Left" PreviewMouseLeftButtonDown="Container_MouseLeftButtonDown">
         </Grid>
-        <TextBlock x:Name="TitleBlock" Text="Title" 
-                   FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+        <TextBlock Text="{Binding ElementName=_this, Path=Title, Mode=OneWay}" 
+                   FontSize="{Binding ElementName=_this, Path=FontSize, Mode=OneWay}"
+                   FontWeight="{Binding ElementName=_this, Path=FontWeight, Mode=OneWay}"
+                   FontStretch="{Binding ElementName=_this, Path=FontStretch, Mode=OneWay}"
+                   FontFamily="{Binding ElementName=_this, Path=FontFamily, Mode=OneWay}"
+                   FontStyle="{Binding ElementName=_this, Path=FontStyle, Mode=OneWay}"
                    VerticalAlignment="Center" Grid.Column="1" MouseLeftButtonDown="Container_MouseLeftButtonDown"></TextBlock>
         <ToggleButton x:Name="CloseButton" Style="{StaticResource Window_CloseButton}" Grid.Column="4"
-                      Click="CloseButton_Click" Background="Red" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=UserControl}}"></ToggleButton>
+                      Click="CloseButton_Click" Background="Red" Width="50"
+                      Foreground="{Binding ElementName=_this, Path=Foreground, Mode=OneWay}"
+                      Visibility="{Binding ElementName=_this, Path=CloseButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"></ToggleButton>
         <ToggleButton x:Name="RestoreButton" Style="{StaticResource Window_RestoreDownButton}" Grid.Column="3"
-                      Click="RestoreButton_Click" Foreground="{Binding ElementName=CloseButton, Path=Foreground}"></ToggleButton>
-        <ToggleButton x:Name="MaximizeButton" Style="{StaticResource Window_MaximizeButton}" Grid.Column="3"
-                      Click="MaximizeButton_Click" Visibility="Hidden" Foreground="{Binding ElementName=CloseButton, Path=Foreground}"></ToggleButton>
-        <ToggleButton x:Name="MinimizeButton" Style="{StaticResource Window_MinimizeButton}" Grid.Column="2"
-                      Click="MinimizeButton_Click" Foreground="{Binding ElementName=CloseButton, Path=Foreground}"></ToggleButton>
+                      Click="RestoreButton_Click" Width="50"
+                      Foreground="{Binding ElementName=_this, Path=Foreground, Mode=OneWay}"></ToggleButton>
+        <ToggleButton x:Name="MaximizeButton" Style="{StaticResource Window_MaximizeButton}" Grid.Column="3" Width="50"
+                      Click="MaximizeButton_Click" Visibility="Hidden" Foreground="{Binding ElementName=_this, Path=Foreground, Mode=OneWay}"></ToggleButton>
+        <ToggleButton x:Name="MinimizeButton" Style="{StaticResource Window_MinimizeButton}" Grid.Column="2" Width="50"
+                      Click="MinimizeButton_Click" Foreground="{Binding ElementName=_this, Path=Foreground, Mode=OneWay}"
+                      Visibility="{Binding ElementName=_this, Path=MinimizeButtonVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"></ToggleButton>
     </Grid>
 </UserControl>
